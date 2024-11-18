@@ -9,6 +9,7 @@ import { FaRegBookmark } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";
 import { FaRegUser } from "react-icons/fa6";
 import { CiCircleMore } from "react-icons/ci";
+import FeedCard from "@/components/feedCard";
 
 
 interface twitterSideBarButton {
@@ -72,7 +73,9 @@ export default function Home() {
           </div>
       </div>
       {/* ==================Middle-section========================= */}
-      <div className="col-span-6  border-l-[1px] border-r-[1px] border-gray-400"></div>
+      <div className="col-span-6  border-l-[1px] border-r-[1px] border-gray-400">
+        <FeedCard />
+      </div>
       
       {/* ======================right-section===================== */}
       <div className="col-span-3"></div>
