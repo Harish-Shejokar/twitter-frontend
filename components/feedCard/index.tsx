@@ -53,16 +53,15 @@ const FeedCard: React.FC = () => {
               luctus felis facilisis, consequat enim. Fusce vulputate, quam vel
               vulputate finibus, metus.
             </p>
-            <div></div>
-            <div></div>
+           
                   </div>
 
                   {/* bottom-bar icons */}
-                  <div className="flex">
-                      <span><TbMessageCircle /></span>
-                      <span><FaRetweet /></span>
-                      <span><FaRegHeart /></span>
-                      <span><PiUploadSimpleBold /></span>
+                  <div className="flex justify-between px-[0px] w-[90%] mt-4">
+                      <span className="text-lg"><TbMessageCircle /></span>
+                      <span className="text-lg"><FaRetweet /></span>
+                      <span className="text-lg"><FaRegHeart /></span>
+                      <span className="text-lg"><PiUploadSimpleBold /></span>
                   </div>
         </div>
       </div>

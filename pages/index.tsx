@@ -10,6 +10,8 @@ import { FiUsers } from "react-icons/fi";
 import { FaRegUser } from "react-icons/fa6";
 import { CiCircleMore } from "react-icons/ci";
 import FeedCard from "@/components/feedCard";
+import { GoogleLogin } from "@react-oauth/google";
+
 
 
 interface twitterSideBarButton {
@@ -55,7 +57,11 @@ const sideBarMenuItem: twitterSideBarButton[] = [
     title: "More",
     icons : <CiCircleMore />
   },
-]
+];
+
+const handleLoginWithGoogle = async ( (cred:CredentialResponse) => {
+  
+})
 
 export default function Home() {
   return (
@@ -75,11 +81,22 @@ export default function Home() {
       {/* ==================Middle-section========================= */}
       <div className="col-span-6  border-l-[1px] border-r-[1px] border-gray-400">
         <FeedCard />
+        <FeedCard />
+        <FeedCard />
+        <FeedCard />
+        
       </div>
       
       {/* ======================right-section===================== */}
-      <div className="col-span-3"></div>
-       
+      <div className="col-span-3 p-4">
+      <div className=" border p-5 text-center bg-slate-700 rounded-lg ">
+        <h2 className="font-bold">New to Twitter ?</h2>
+        <div className="flex justify-center mt-2">
+        <GoogleLogin onSuccess={(cred) => console.log(cred)}/>
+        </div>
+       </div>
+      </div>
+     
     </div>
   );
 }
