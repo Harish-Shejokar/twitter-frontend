@@ -59,9 +59,9 @@ const sideBarMenuItem: twitterSideBarButton[] = [
   },
 ];
 
-const handleLoginWithGoogle = async ( (cred:CredentialResponse) => {
+// const handleLoginWithGoogle = async ( (cred:CredentialResponse) => {
   
-})
+// })
 
 export default function Home() {
   return (
