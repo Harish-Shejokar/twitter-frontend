@@ -14,6 +14,8 @@ import { CredentialResponse, GoogleLogin } from "@react-oauth/google";
 import { graphQLClient } from "@/clients/api";
 import { verifyUserGoogleTokenQuery } from "@/graphql/query/user";
 import toast from "react-hot-toast";
+import { useCurrentUser } from "@/hooks/user";
+import { useQueryClient } from "@tanstack/react-query";
 
 
 
@@ -66,7 +68,9 @@ const sideBarMenuItem: twitterSideBarButton[] = [
 
 
 export default function Home() {
-
+const user = useCurrentUser();
+const queryClient = useQueryClient();
+console.log("=========", user)
 
   const handleLoginWithGoogle = useCallback(async (cred: CredentialResponse) => {
     const googleToken = cred.credential;
@@ -80,6 +84,7 @@ export default function Home() {
       window.localStorage.setItem("__twitter_token", verifyGoogleToken );
     }
 
+   await queryClient.invalidateQueries
 
   }, [])
 
@@ -110,12 +115,12 @@ export default function Home() {
 
       {/* ======================right-section===================== */}
       <div className="col-span-3 p-4">
-        <div className=" border p-5 text-center bg-slate-700 rounded-lg ">
+        { <div className=" border p-5 text-center bg-slate-700 rounded-lg ">
           <h2 className="font-bold">New to Twitter ?</h2>
           <div className="flex justify-center mt-2">
             <GoogleLogin onSuccess={handleLoginWithGoogle} />
           </div>
-        </div>
+        </div>}
       </div>
 
     </div>

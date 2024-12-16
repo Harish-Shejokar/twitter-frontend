@@ -15,6 +15,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  */
 const documents = {
     "#graphql \n  query VerifyUserGoogleToken($token: String!) {\n    verifyGoogleToken(token: $token)\n  }\n": types.VerifyUserGoogleTokenDocument,
+    "#graphql\n      query GetCurrentUserQuery {\n          getCurrentUser{\n             id\n             profileImageUrl\n             email\n             firstName\n             lastName\n          }\n      }\n  ": types.GetCurrentUserQueryDocument,
 };
 
 /**
@@ -35,6 +36,10 @@ export function graphql(source: string): unknown;
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function graphql(source: "#graphql \n  query VerifyUserGoogleToken($token: String!) {\n    verifyGoogleToken(token: $token)\n  }\n"): (typeof documents)["#graphql \n  query VerifyUserGoogleToken($token: String!) {\n    verifyGoogleToken(token: $token)\n  }\n"];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "#graphql\n      query GetCurrentUserQuery {\n          getCurrentUser{\n             id\n             profileImageUrl\n             email\n             firstName\n             lastName\n          }\n      }\n  "): (typeof documents)["#graphql\n      query GetCurrentUserQuery {\n          getCurrentUser{\n             id\n             profileImageUrl\n             email\n             firstName\n             lastName\n          }\n      }\n  "];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
