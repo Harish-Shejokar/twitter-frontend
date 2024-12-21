@@ -14,7 +14,8 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Learn more about it here: https://the-guild.dev/graphql/codegen/plugins/presets/preset-client#reducing-bundle-size
  */
 const documents = {
-    "#graphql \n  query VerifyUserGoogleToken($token: String!) {\n    verifyGoogleToken(token: $token)\n  }\n": types.VerifyUserGoogleTokenDocument,
+    "\n    #graphql\n    query VerifyUserGoogleToken($token: String!) {\n      verifyGoogleToken(token: $token)\n    }\n  ": types.VerifyUserGoogleTokenDocument,
+    "\n  #graphql\n  query GetCurrentUser {\n    getCurrentUser {\n      email\n      firstName\n      id\n      lastName\n      profileImageUrl\n    }\n  }\n": types.GetCurrentUserDocument,
 };
 
 /**
@@ -34,7 +35,11 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "#graphql \n  query VerifyUserGoogleToken($token: String!) {\n    verifyGoogleToken(token: $token)\n  }\n"): (typeof documents)["#graphql \n  query VerifyUserGoogleToken($token: String!) {\n    verifyGoogleToken(token: $token)\n  }\n"];
+export function graphql(source: "\n    #graphql\n    query VerifyUserGoogleToken($token: String!) {\n      verifyGoogleToken(token: $token)\n    }\n  "): (typeof documents)["\n    #graphql\n    query VerifyUserGoogleToken($token: String!) {\n      verifyGoogleToken(token: $token)\n    }\n  "];
+/**
+ * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function graphql(source: "\n  #graphql\n  query GetCurrentUser {\n    getCurrentUser {\n      email\n      firstName\n      id\n      lastName\n      profileImageUrl\n    }\n  }\n"): (typeof documents)["\n  #graphql\n  query GetCurrentUser {\n    getCurrentUser {\n      email\n      firstName\n      id\n      lastName\n      profileImageUrl\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};
