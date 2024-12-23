@@ -6,10 +6,9 @@ import { FaRetweet } from "react-icons/fa6";
 import { FaRegHeart } from "react-icons/fa";
 import { PiUploadSimpleBold } from "react-icons/pi";
 
-
 const FeedCard: React.FC = () => {
   return (
-    <div className="border px-4 py-4 hover:bg-[#0e1012] cursor-pointer border border-[#2f3336]">
+    <div className="border px-4 py-4 hover:bg-[#0e1012] cursor-pointer  border-[#2f3336]">
       <div className="grid grid-cols-12 ">
         <div className="col-span-1 ">
           <Image
@@ -53,16 +52,23 @@ const FeedCard: React.FC = () => {
               luctus felis facilisis, consequat enim. Fusce vulputate, quam vel
               vulputate finibus, metus.
             </p>
-           
-                  </div>
+          </div>
 
-                  {/* bottom-bar icons */}
-                  <div className="flex justify-between px-[0px] w-[90%] mt-4">
-                      <span className="text-lg"><TbMessageCircle /></span>
-                      <span className="text-lg"><FaRetweet /></span>
-                      <span className="text-lg"><FaRegHeart /></span>
-                      <span className="text-lg"><PiUploadSimpleBold /></span>
-                  </div>
+          {/* bottom-bar icons */}
+          <div className="flex justify-between px-[0px] w-[90%] mt-4">
+            <span className="text-lg">
+              <TbMessageCircle />
+            </span>
+            <span className="text-lg">
+              <FaRetweet />
+            </span>
+            <span className="text-lg">
+              <FaRegHeart />
+            </span>
+            <span className="text-lg">
+              <PiUploadSimpleBold />
+            </span>
+          </div>
         </div>
       </div>
     </div>
