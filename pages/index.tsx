@@ -18,6 +18,7 @@ import { useCurrentUser } from "@/hooks/user";
 import { useQueryClient } from "@tanstack/react-query";
 import Image from "next/image";
 import { MdOutlineImage } from "react-icons/md";
+import { useGetAllTweets } from "@/hooks/tweet";
 
 interface twitterSideBarButton {
   title: string;
@@ -65,7 +66,11 @@ const sideBarMenuItem: twitterSideBarButton[] = [
 
 export default function Home() {
   const { user } = useCurrentUser();
+  const { tweets =[] } = useGetAllTweets();
   const queryClient = useQueryClient();
+
+
+  console.log(tweets);
 
 
   const handleLoginWithGoogle = useCallback(
@@ -138,6 +143,7 @@ export default function Home() {
       </div>
       {/* ==================Middle-section========================= */}
       <div className="col-span-6  border-l-[1px] border-r-[1px] border-gray-400 overflow-y-auto ">
+        {/* post-bar */}
         <div className="border px-4 py-4 hover:bg-[#0e1012] cursor-pointer  border-[#2f3336] ">
           <div className="flex gap-2">
             <span>
@@ -163,11 +169,9 @@ export default function Home() {
           </div>
 
         </div>
-
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
-        <FeedCard />
+        
+        {tweets.map(tweet => <FeedCard key={tweet.id} data={tweet} />)}
+        
       </div>
 
       {/* ======================right-section===================== */}
